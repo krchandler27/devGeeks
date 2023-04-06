@@ -1,0 +1,75 @@
+header,
+.project:not(:last-child) {
+  border-bottom: 5px solid white;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgb(29, 203, 29);
+  text-decoration: none;
+  font-size: 100%;
+}
+
+#mainTitle {
+  font-size: 50px;
+}
+
+.bookBackground {
+  background-image: url('../images/book1.JPG');
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.straightLine {
+  font-size: 40px;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  background-color: rgb(29, 203, 29);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: -500px;
+  margin-right: -500px;
+}
+
+hr {
+  margin-left: -500px;
+  margin-right: -500px;
+}
+
+.titleSize {
+  font-size: 40px;
+  color:rgb(29, 203, 29);
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.page {
+  padding: -100px;
+}
+
+#logout:hover {
+    color: rgb(243, 22, 184);
+    text-decoration: underline;
+}
+
+#login {
+  font-size: 25px;
+  padding-right: 50px;
+  font: bolder;
+}
+
+
+#calendar {
+  max-width: 1100px;
+  margin: 40px auto;
+}
