@@ -18,10 +18,10 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false, // Set this column to not allow null values
     },
-    book_id: {
+    blog_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "book",
+        model: "blog",
         key: "id",
       },
     },

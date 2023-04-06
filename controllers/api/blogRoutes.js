@@ -1,27 +1,27 @@
 const router = require("express").Router();
-const { Book } = require("../../models");
+const { Blog } = require("../../models");
 const authorize = require("../../utils/auth");
 
-// Post/create new book after being signed in to profile
+// Post/create new blog after being signed in to profile
 router.post("/", authorize, async (req, res) => {
   try {
-    const newBook = await Book.create({
+    const newBlog = await Blog.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(202).json(newBook);
+    res.status(202).json(newBlog);
   } catch (err) {
     res.status(404).json(err);
   }
 });
 
-// Update book created by user from profile
+// Update blog created by user from profile
 router.put("/:id", authorize, async (req, res, next) => {
   try {
-    const findBook = await Book.update(
+    const findBlog = await Blog.update(
       {
-        book_name: req.body.book_name,
+        blog_name: req.body.blog_name,
         author: req.body.author,
         description: req.body.description,
         genres: req.body.genres,
@@ -35,33 +35,33 @@ router.put("/:id", authorize, async (req, res, next) => {
       }
     );
 
-    if (!findBook) {
-      res.status(404).json({ message: "🚫 Could not Update Book 🚫" });
+    if (!findBlog) {
+      res.status(404).json({ message: "🚫 Could not Update blog 🚫" });
       return;
     }
-    res.status(202).json(findBook);
+    res.status(202).json(findBlog);
   } catch (err) {
     res.status(505).json(err);
   }
 });
 
-// Delete book created by user
+// Delete blog created by user
 router.delete("/:id", authorize, async (req, res) => {
   try {
-    const bookInfo = await Book.destroy({
+    const blogInfo = await Blog.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!bookInfo) {
+    if (!blogInfo) {
       res.status(404).json({
-        message: "🚫 No matching book ID 🚫",
+        message: "🚫 No matching blog ID 🚫",
       });
       return;
     }
-    res.status(202).json(bookInfo);
+    res.status(202).json(blogInfo);
   } catch (err) {
     res.status(404).json(err);
   }

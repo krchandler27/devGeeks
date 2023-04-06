@@ -11,12 +11,12 @@
 <div style="background-color: black;">
   <div class="row d-flex justify-content-center">
   <div class="p-2 w-75 text-center">
-    <h2 class="titleSize">Welcome, {{name}}!</h2>
+    <h2 class="titleSize">Hello, {{name}}!</h2>
   </div>
 </div>
 <div class="row d-flex justify-content-center">
   <div class="p-2 w-50 text-center">
-    <a href="/profile/createBook" class="titleSize">➕ New Blog Post</a>
+    <a href="/profile/createBook" class="titleSize">➕ createNewBlogPost</a>
   </div>
 </div>
 
@@ -24,15 +24,15 @@
   {{#if books.length}}
   <div class="book-list row d-flex justify-content-center">
     <div class="d-flex flex-column mb-3 w-50">
-    <h3>My Books:</h3>
+    <h3>myBlogPosts:</h3>
 
     {{#each books as |book|}}
     <div class="row d-flex">
       <div class="d-flex justify-content-between">
-        <h4><a href="/books/{{book.id}}">📖 {{book.book_name}}</a></h4>
+        <h4><a href="/books/{{book.id}}">✍️ {{book.book_name}}</a></h4>
         <div class="d-flex flex-row align-items-center">
         <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/books/{{book.id}}/updateBook" class="btn btn-sm btn-info me-md-2" >Update</a>
+            <a href="/books/{{book.id}}/updateBook" class="btn btn-sm btn-info me-md-2" >Edit Post</a>
             <button class="btn btn-sm btn-danger" data-id="{{book.id}}">Delete</button>
         </div>
         </div>
@@ -49,12 +49,12 @@
 </div>
 
 {{!-- Show User's comments on User's profile --}}
-<div style="background-color: white;">
+<div style="background-color: black;">
   <div>
   {{#if comments.length}}
   <div class="comment-list row d-flex justify-content-center">
     <div class="d-flex flex-column mb-3 w-50">
-    <h3>My comments:</h3>
+    <h3>myComments:</h3>
 
     {{#each comments as |comment|}}
     <div class="row d-flex border mb-3 p-1">
@@ -65,7 +65,7 @@
         <div class="">
         <div class="d-flex flex-row align-items-center">
           <div class="update-comment d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/comments/{{comment.id}}/updateComment" class="btn btn-sm btn-info me-md-2">Update</a>
+            <a href="/comments/{{comment.id}}/updateComment" class="btn btn-sm btn-info me-md-2">Edit Comment</a>
             <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">Delete</button>
           </div>
         </div>

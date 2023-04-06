@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { Book, User, Comment } = require("../models");
+const { Blog, User, Comment } = require("../models");
 const authorize = require("../utils/auth");
 
-// Find all books and add User name
+// Find all blogs and add User name
 router.get("/", async (req, res) => {
   try {
-    const bookInfo = await Book.findAll({
+    const blogInfo = await Blog.findAll({
       include: [
         {
           model: User,
@@ -15,10 +15,10 @@ router.get("/", async (req, res) => {
     });
 
     // Serialize or make the data easier to read
-    const books = bookInfo.map((book) => book.get({ plain: true }));
+    const blogs = blogInfo.map((blog) => blog.get({ plain: true }));
 
     res.render("homepage", {
-      books,
+      blogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -50,10 +50,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get One book by ID along with comments
-router.get("/books/:id", authorize, async (req, res) => {
+// Get One blog by ID along with comments
+router.get("/blogs/:id", authorize, async (req, res) => {
   try {
-    const bookInfo = await Book.findByPk(req.params.id, {
+    const blogInfo = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -67,15 +67,15 @@ router.get("/books/:id", authorize, async (req, res) => {
       // order: [[{ model: Comment}, "date_created", DESC]]
     });
 
-    const book = bookInfo.get({ plain: true });
+    const blog = blogInfo.get({ plain: true });
 
-    const bookComments = bookInfo.comments.map((comment) =>
+    const blogComments = blogInfo.comments.map((comment) =>
       comment.get({ plain: true })
     );
 
-    res.render("book", {
-      ...book,
-      ...bookComments,
+    res.render("blog", {
+      ...blog,
+      ...blogComments,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -83,17 +83,17 @@ router.get("/books/:id", authorize, async (req, res) => {
   }
 });
 
-// Must be logged in to create book
-router.get("/profile/createBook", authorize, async (req, res) => {
+// Must be logged in to create blog
+router.get("/profile/createBlog", authorize, async (req, res) => {
   try {
     const userInfo = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Book }],
+      include: [{ model: Blog }],
     });
 
     const user = userInfo.get({ plain: true });
 
-    res.render("createBook", {
+    res.render("createBlog", {
       ...user,
       logged_in: true,
     });
@@ -102,14 +102,14 @@ router.get("/profile/createBook", authorize, async (req, res) => {
   }
 });
 
-// Update book using book id
-router.get("/books/:id/updateBook", authorize, async (req, res) => {
+// Update blog using blog id
+router.get("/blogs/:id/updateBlog", authorize, async (req, res) => {
   try {
-    const findBook = await Book.findByPk(req.params.id);
-    const book = findBook.get({ plain: true });
+    const findBlog = await Blog.findByPk(req.params.id);
+    const blog = findBlog.get({ plain: true });
 
-    res.render("updateBook", {
-      book,
+    res.render("updateBlog", {
+      blog,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -118,9 +118,9 @@ router.get("/books/:id/updateBook", authorize, async (req, res) => {
 });
 
 // Must be logged in to add comment
-router.get("/books/:id/addComment", authorize, async (req, res) => {
+router.get("/blogs/:id/addComment", authorize, async (req, res) => {
   try {
-    const bookInfo = await Book.findByPk(req.params.id, {
+    const blogInfo = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -131,10 +131,10 @@ router.get("/books/:id/addComment", authorize, async (req, res) => {
         },
       ],
     });
-    const book = bookInfo.get({ plain: true });
+    const blog = blogInfo.get({ plain: true });
 
     res.render("addComment", {
-      ...book,
+      ...blog,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -157,31 +157,12 @@ router.get("/comments/:id/updateComment", authorize, async (req, res) => {
   }
 });
 
-// Must be logged in to view calendar
-router.get("/profile/calendar", authorize, async (req, res) => {
-  try {
-    const userInfo = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Book }],
-    });
-
-    const user = userInfo.get({ plain: true });
-
-    res.render("calendar", {
-      ...user,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(505).json(err);
-  }
-});
-
 // Must be logged in to get profile information
 router.get("/profile", authorize, async (req, res) => {
   try {
     const userInfo = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Book }, {model: Comment}],
+      include: [{ model: Blog }, {model: Comment}],
     });
 
     const user = userInfo.get({ plain: true });
