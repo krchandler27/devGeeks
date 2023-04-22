@@ -10,75 +10,78 @@
 
 <div style="background-color: black;">
   <div class="row d-flex justify-content-center">
-  <div class="p-2 w-75 text-center">
-    <h2 class="titleSize">Hello, {{name}}!</h2>
+    <div class="p-2 w-75 text-center">
+      <h2 class="titleSize">Hello, {{name}}!</h2>
+    </div>
   </div>
-</div>
-<div class="row d-flex justify-content-center">
-  <div class="p-2 w-50 text-center">
-    <a href="/profile/createBlog" class="titleSize">➕ createNewBlogPost</a>
+  <div class="row d-flex justify-content-center">
+    <div class="p-2 w-50 text-center titleSize">➕<a href="/profile/createBlog" class="titleSize">createNewBlogPost</a>
+    </div>
   </div>
-</div>
 
-<div>
-  {{#if blogs.length}}
-  <div class="blog-list row d-flex justify-content-center">
-    <div class="d-flex flex-column mb-3 w-50">
-    <h3>myBlogPosts:</h3>
+  {{!-- <div>
+    {{#if blogs.length}}
+    <div class="blog-list row d-flex justify-content-center">
+      <div class="d-flex flex-column mb-3 w-50"> --}}
+        <h3>myBlogPosts:</h3>
 
-    {{#each blogs as |blog|}}
-    <div class="row d-flex">
-      <div class="d-flex justify-content-between">
-        <h4><a href="/blogs/{{blog.id}}">✍️ {{blog.blog_name}}</a></h4>
-        <div class="d-flex flex-row align-items-center">
-        <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-sm btn-info me-md-2" >Edit Post</a>
-            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">Delete</button>
+        {{#each blogs as |blog|}}
+        <div class="row d-flex">
+          <div class="d-flex justify-content-between">
+            <h4><a href="/blogs/{{blog.id}}">✍️ {{blog.title}}</a></h4>
+            <div class="d-flex flex-row align-items-center">
+              <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-sm btn-info me-md-2">Edit Post</a>
+                <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
+        {{/each}}
+        {{!--
       </div>
     </div>
-    {{/each}}
+    {{else}}
+
+    {{/if}}
   </div>
-  {{/if}}
-</div>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br> --}}
 </div>
 </div>
 
 {{!-- Show User's comments on User's profile --}}
 <div style="background-color: black;">
   <div>
-  {{#if comments.length}}
-  <div class="comment-list row d-flex justify-content-center">
-    <div class="d-flex flex-column mb-3 w-50">
-    <h3>myComments:</h3>
+    {{#if comments.length}}
+    <div class="comment-list row d-flex justify-content-center">
+      <div class="d-flex flex-column mb-3 w-50">
+        <h3>myComments:</h3>
 
-    {{#each comments as |comment|}}
-    <div class="row d-flex border mb-3 p-1">
-      <div class="d-flex justify-content-between">
-        <div class="container">
-        <h4 class="fs-6">💭 {{comment.body}}</h4>
-        </div>
-        <div class="">
-        <div class="d-flex flex-row align-items-center">
-          <div class="update-comment d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/comments/{{comment.id}}/updateComment" class="btn btn-sm btn-info me-md-2">Edit Comment</a>
-            <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">Delete</button>
+        {{#each comments as |comment|}}
+        <div class="row d-flex border mb-3 p-1">
+          <div class="d-flex justify-content-between">
+            <div class="container">
+              <h4 class="fs-6">💭 {{comment.body}}</h4>
+            </div>
+            <div class="">
+              <div class="d-flex flex-row align-items-center">
+                <div class="update-comment d-grid gap-2 d-md-flex justify-content-md-end">
+                  <a href="/comments/{{comment.id}}/updateComment" class="btn btn-sm btn-info me-md-2">Edit Comment</a>
+                  <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">Delete</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
+        {{/each}}
       </div>
+      {{/if}}
     </div>
-    {{/each}}
+    <br>
+    <br>
+    <br>
   </div>
-  {{/if}}
-</div>
-<br>
-<br>
-<br>
-</div>
 </div>
 </div>
