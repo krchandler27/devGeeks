@@ -1,9 +1,9 @@
-{{!-- Form for adding new comment to book --}}
+{{!-- Form for adding new comment to blog --}}
 <div>
   <div class="row d-flex justify-content-center">
-    <div class="book d-flex flex-column mb-3 w-50">
+    <div class="blog d-flex flex-column mb-3 w-50">
       <div class="align-self-center">
-        <h2 class="text-center text-success fs-1">{{book_name}}</h2>
+        <h2 class="text-center text-success fs-1">{{blogTitle}}</h2>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="card-body">
-      <input type="hidden" name="book_id" value="{{id}}" />
+      <input type="hidden" name="blog_id" value="{{id}}" />
 
       <label class="form-label" for="comment-body">Comment</label>
 

@@ -16,7 +16,7 @@ Comment.init(
     },
     body: {
       type: DataTypes.STRING,
-      allowNull: false, // Set this column to not allow null values
+      allowNull: true
     },
     blog_id: {
       type: DataTypes.INTEGER,

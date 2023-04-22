@@ -1,6 +1,6 @@
 <style>
   body {
-    background-image: url('/assets/images/book-library.webp');
+    background-image: url('/assets/images/blog-library.webp');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -16,24 +16,24 @@
 </div>
 <div class="row d-flex justify-content-center">
   <div class="p-2 w-50 text-center">
-    <a href="/profile/createBook" class="titleSize">➕ createNewBlogPost</a>
+    <a href="/profile/createBlog" class="titleSize">➕ createNewBlogPost</a>
   </div>
 </div>
 
 <div>
-  {{#if books.length}}
-  <div class="book-list row d-flex justify-content-center">
+  {{#if blogs.length}}
+  <div class="blog-list row d-flex justify-content-center">
     <div class="d-flex flex-column mb-3 w-50">
     <h3>myBlogPosts:</h3>
 
-    {{#each books as |book|}}
+    {{#each blogs as |blog|}}
     <div class="row d-flex">
       <div class="d-flex justify-content-between">
-        <h4><a href="/books/{{book.id}}">✍️ {{book.book_name}}</a></h4>
+        <h4><a href="/blogs/{{blog.id}}">✍️ {{blog.blog_name}}</a></h4>
         <div class="d-flex flex-row align-items-center">
         <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="/books/{{book.id}}/updateBook" class="btn btn-sm btn-info me-md-2" >Edit Post</a>
-            <button class="btn btn-sm btn-danger" data-id="{{book.id}}">Delete</button>
+            <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-sm btn-info me-md-2" >Edit Post</a>
+            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">Delete</button>
         </div>
         </div>
       </div>

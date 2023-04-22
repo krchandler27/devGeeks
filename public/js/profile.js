@@ -1,25 +1,25 @@
-// User can delete book which they have created
-const deleteBookButton = async (event) => {
+// User can delete blog which they have created
+const deleteBlogButton = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
       console.log(id);
 
-      const response = await fetch(`/api/books/${id}`, {
+      const response = await fetch(`/api/blogs/${id}`, {
         method: 'DELETE'
       });
-  console.log(`/api/books/${id}`);
+  console.log(`/api/blogs/${id}`);
   console.log(response);
 
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Could not delete book 🚫');
+        alert('Could not delete blog 🚫');
       }
     }
   };
   
-  document.querySelector('.book-list').addEventListener('click', deleteBookButton);
+  document.querySelector('.blog-list').addEventListener('click', deleteBlogButton);
 
 // Delete an existing comment
 const deleteCommentButton = async (event) => {

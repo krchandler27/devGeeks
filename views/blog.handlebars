@@ -1,6 +1,6 @@
-{{! Display for a single book with comments }}
-<div class="row d-flex justify-content-center py-5" style="background-image: url('/assets/images/blank-book.webp'); background-repeat:no-repeat; background-size:cover;">
-  <div class="book d-flex flex-column m-5 w-50" >
+{{! Display for a single blog with comments }}
+<div class="row d-flex justify-content-center py-5" style="background-image: url('/assets/images/blank-blog.webp'); background-repeat:no-repeat; background-size:cover;">
+  <div class="blog d-flex flex-column m-5 w-50" >
     <div class="align-self-center">
       <h1 class="text-success fs-1">{{title}}</h1>
     </div>
@@ -16,7 +16,7 @@
     <br />
     <div class="align-self-center">
       <p>
-        <a href="/books/{{id}}/addComment" class="btn btn-primary">Add a comment</a>
+        <a href="/blogs/{{id}}/addComment" class="btn btn-primary">addComment</a>
       </p>
     </div>
 <br>
@@ -24,7 +24,7 @@ Comments:
     <!-- Loop over each comment in the comments array and display each comment -->
     {{#each comments as |comment|}}
     <div class="row d-flex justify-content-center border rounded mb-3">
-      <div class="book d-flex flex-column mb-3 w-50">
+      <div class="blog d-flex flex-column mb-3 w-50">
         <div class="align-self-center">
           <h4 class="fs-5">{{comment.body}}</h4>
         </div>

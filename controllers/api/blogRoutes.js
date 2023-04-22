@@ -21,11 +21,8 @@ router.put("/:id", authorize, async (req, res, next) => {
   try {
     const findBlog = await Blog.update(
       {
-        blog_name: req.body.blog_name,
-        author: req.body.author,
-        description: req.body.description,
-        genres: req.body.genres,
-        image: req.body.image,
+        title: req.body.title,
+        body: req.body.body
       },
       {
         where: {
