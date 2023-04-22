@@ -1,19 +1,21 @@
 {{!-- Form for creating a new blog for signed in user --}}
 <div class="row d-flex justify-content-center">
   <div class="d-flex flex-column mb-3 w-50">
-    <h3 class="text-center text-success titleSize">addNewBlog:</h3>
+    <h3 class="text-center titleSize">addNewBlog:</h3>
 
-    <div class="px-5 pt-3"
-      style="background-image: url('/assets/images/scroll.png'); background-repeat:no-repeat; background-size: contain;">
-      <form class="form new-blog-form pb-5 px-5">
+    <div class="px-5 pt-3">
+      <form class="new-blog-form">
+
         <div class="form-group">
-          <label for="blog-name" style="font-weight: bold;">blogTitle:</label>
-          <input class="form-input" type="text" id="blog-name" name="blog-name" />
+          <label for="blog-title" style="font-weight: bold;">blogTitle:</label>
+          <input class="form-input" type="text" id="blog-title" name="blog-title" />
         </div>
+
         <div class="form-group">
-          <label for="blog-author" style="font-weight: bold;">blogBody:</label>
-          <input class="form-input" type="text" id="blog-author" name="blog-author" />
+          <label for="blog-body" style="font-weight: bold;">blogBody:</label>
+          <textarea id="blog-body" name="paragraph" rows="25" cols="100" name="blog-body"></textarea>
         </div>
+
         <div class="form-group d-flex justify-content-center">
           <p>
             <button type="submit" class="btn btn-primary">addBlog</button>

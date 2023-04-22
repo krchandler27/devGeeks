@@ -2,13 +2,13 @@
 const newBlogForm = async (event) => {
   event.preventDefault();
 
-  const blogTitle = document.getElementById("blog-title").value.trim();
-  const blogBody = document.getElementById("blog-body").value.trim();
+  const title = document.getElementById("blog-title").value.trim();
+  const body = document.getElementById("blog-body").value.trim();
 
-  if (blogTitle && blogBody) {
+  if (title && body) {
     const response = await fetch("/api/blogs", {
       method: "POST",
-      body: JSON.stringify({blogTitle, blogBody}),
+      body: JSON.stringify({title, body}),
       headers: {
         "Content-Type": "application/json",
       },

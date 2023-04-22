@@ -1,27 +1,17 @@
-<h1 class="title">homePage</h1>
+<h1 class="title">const = hotBlogsForDevs => {</h1>
 <hr />
 <!-- Loop over each blog in the blogs array and display each blog -->
 {{#each blogs as |blog|}}
-<div class="row d-flex justify-content-center page"
-  style=style="background-color: black; background-image: url('/assets/images/blog-cover.jpg'); background-repeat:no-repeat; background-size: 100%">
-  <div class="blog d-flex flex-column w-50 mt-5 p-5">
-    <div class="align-self-center pt-5">
-
-      <h2>
-        <a href="/blogs/{{blog.id}}" class="hvr-curl-top-right">{{blog.blog_name}}</a>
-      </h2>
-    </div>
-    <div class="align-self-center">
-      <h5>{{blog.title}}</h5>
-    </div>
-       <div class="align-self-center">
+<a href="/blogs/{{blog.id}}" class="no-style">
+  <div class="row d-flex justify-content-center page blog-tile" style=style="background-color: black">
+    <h2>{{blog.title}}</h2>
       <br />
-         <p class="text-justify">
-        {{blog.body}}
-      </p>
-    </div>
+    <p class="text-justify">
+      {{blog.body}}
+    </p>
   </div>
-</div>
+</a>
 <br>
 {{/each}}
+<h1 class="title">};</h1>
 <br />
