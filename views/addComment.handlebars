@@ -13,18 +13,18 @@
 
   <form id="new-comment-form" class="card">
     <div class="card-header">
-      <h3>Add New Comment</h3>
+      <h3>addNewComment</h3>
     </div>
 
     <div class="card-body textArea">
       <input type="hidden" name="blog_id" value="{{id}}" />
 
-      <label class="form-label" for="comment-body">Comment:</label>
+      <label class="form-label" for="comment-body">comment:</label>
 
       <textarea name="comment-body" rows="10" cols="50" class="form-input " id="comment-body"></textarea>
-
-      <button id="comment-save" type="submit" class="btn btn-primary">Save
-        Comment</button>
+      <div class=" d-flex justify-content-center">
+        <button id="comment-save" type="submit" class="btn btn-primary">submit</button>
+      </div>
     </div>
   </form>
 </div>
