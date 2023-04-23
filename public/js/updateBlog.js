@@ -6,7 +6,7 @@ const updateblogOutline = async (event) => {
     const title = document.getElementById("blog-title").value.trim();
     const body = document.getElementById("blog-body").value.trim();
   
-    if (title, body) {
+    if (title && body) {
       try {
         const blogInfo = await fetch(`/api/blogs/${blog_id}`, {
           method: "PUT",

@@ -27,6 +27,8 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+         <a class="mx-3 titleSize" href="/">home</a>
+        <span class="straightLine">|</span>
         <a class="mx-3 titleSize" href="/profile">myBlogs</a>
         <span class="straightLine">|</span>
         <button class="no-button mx-3 titleSize" id="logout">logOut</button>

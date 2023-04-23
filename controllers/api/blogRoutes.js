@@ -22,7 +22,7 @@ router.put("/:id", authorize, async (req, res, next) => {
     const findBlog = await Blog.update(
       {
         title: req.body.title,
-        body: req.body.body
+        body: req.body.body,
       },
       {
         where: {

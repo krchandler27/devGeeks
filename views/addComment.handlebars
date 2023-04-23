@@ -3,7 +3,10 @@
   <div class="row d-flex justify-content-center">
     <div class="blog d-flex flex-column mb-3 w-50">
       <div class="align-self-center">
-        <h2 class="text-center text-success fs-1">{{blogTitle}}</h2>
+        <h2 class="text-center titleSize fs-1">{{title}}</h2>
+        <p class="text-justify">
+          {{body}}
+        </p>
       </div>
     </div>
   </div>
@@ -13,16 +16,12 @@
       <h3>Add New Comment</h3>
     </div>
 
-    <div class="card-body">
+    <div class="card-body textArea">
       <input type="hidden" name="blog_id" value="{{id}}" />
 
-      <label class="form-label" for="comment-body">Comment</label>
+      <label class="form-label" for="comment-body">Comment:</label>
 
-      <textarea
-        name="comment-body"
-        class="form-input"
-        id="comment-body"
-      ></textarea>
+      <textarea name="comment-body" rows="10" cols="50" class="form-input " id="comment-body"></textarea>
 
       <button id="comment-save" type="submit" class="btn btn-primary">Save
         Comment</button>
