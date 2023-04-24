@@ -162,12 +162,13 @@ router.get("/profile", authorize, async (req, res) => {
   try {
     const userInfo = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Blog }, {model: Comment}],
+      include: [{ model: Blog }, { model: Comment }],
     });
 
     const user = userInfo.get({ plain: true });
-
+    console.log(user);
     res.render("profile", {
+      blogs: user.Blogs,
       ...user,
       logged_in: true,
     });
