@@ -2,12 +2,12 @@
 const deleteBlogButton = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-alert(id);
+
     const response = await fetch(`/api/blogs/${id}`, {
       method: 'DELETE',
     });
 
-
+    alert("Your blog post will be deleted 👍.");
     if (response.ok) {
       document.location.replace('/profile');
     } else {
@@ -18,7 +18,7 @@ alert(id);
 
 // Delete an existing comment
 const deleteCommentButton = async (event) => {
-  alert("Error!");
+  
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
@@ -28,10 +28,9 @@ const deleteCommentButton = async (event) => {
 
     if (commentDelete.ok) {
       document.location.replace("/profile");
- 
-    } else {
-      alert("🚫 Could not delete Comment 🚫");
-    }
+      
+     } 
+     alert("Your comment will be deleted 👍.");
   }
 };
 

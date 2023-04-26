@@ -3,21 +3,22 @@
 
 <div style="background-color: black;">
 
-  <div class="p-2 w-75 text-center">
-    <h2 class="titleSize">Hello, {{name}}!</h2>
+  <div class="text-center">
+    <h2 class="text-center titleSize">Hello, {{name}}!</h2>
   </div>
 
-  <div class="p-2 w-50 text-center titleSize">➕<a href="/profile/createBlog" class="titleSize">createNewBlogPost</a>
+  <div class="text-center titleSize">➕<a href="/profile/createBlog" class="text-center titleSize">createNewBlogPost</a>
   </div>
+  </br>
 
   
-       <div class="row d-flex justify-content-center">
+       <div class="row d-flex justify-content-center" style="background-color: black;">
       <div class="d-flex flex-column mb-3 w-50">
         <h2>myBlogPosts:</h2>
         {{#each blogs as |blog|}}
-        <div class="row d-flex">
+        <div class="row d-flex" style="background-color: black;">
           <div class="d-flex justify-content-between">
-            <h4><a href="/books/{{blog.id}}">📖 {{blog.title}}</a></h4>
+            <h4><a href="/blogs/{{blog.id}}">📖 {{blog.title}}</a></h4>
             <div class="d-flex flex-row align-items-center">
               <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-sm btn-info me-md-2">Update</a>

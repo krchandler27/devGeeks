@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: black;">
 
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="flex-column" style="background-color: black;">
+  <div class="" style="background-color: black;">
     <header class="display-flex justify-space-between align-center p-3" style="background-color: black;">
       <h1>
         <a id="mainTitle" href="/">devGeeks</a>
@@ -29,7 +29,7 @@
         {{#if logged_in}}
          <a class="mx-3 titleSize" href="/">homePage</a>
         <span class="straightLine">|</span>
-        <a class="mx-3 titleSize" href="/profile">myBlogs</a>
+        <a class="mx-3 titleSize" href="/profile">myProfile</a>
         <span class="straightLine">|</span>
         <button class="no-button mx-3 titleSize" id="logout">logOut</button>
         {{else}}
@@ -37,7 +37,7 @@
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-3" style="background-color: black;">
+    <main class="mt-4" style="background-color: black;">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
