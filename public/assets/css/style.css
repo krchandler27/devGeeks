@@ -99,3 +99,17 @@ hr {
 .textArea {
   background-color: black;
 }
+
+.align {
+  text-align: left;
+}
+
+.expand {
+    font-size: 16px;
+    padding: 120px 200px;
+    margin: 100px;
+  }
+
+  .btn {
+    border-radius: 40px;
+  }

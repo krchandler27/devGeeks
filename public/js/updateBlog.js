@@ -10,7 +10,7 @@ const updateBlogOutline = async (event) => {
     try {
       const blogInfo = await fetch(`/api/blogs/${blog_id}`, {
         method: "PUT",
-        body: JSON.stringify({ title: title, body: body }),
+        body: JSON.stringify({ title, body }),
         headers: { "Content-Type": "application/json" },
       });
       console.log(title);

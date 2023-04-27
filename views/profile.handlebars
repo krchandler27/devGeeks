@@ -2,71 +2,88 @@
 
 <div class="row">
   <div class="col-sm-12 col-md-12 col-lg-9 mx-auto">
-<div style="background-color: black;">
+    <div style="background-color: black;">
 
-  <div class="text-center">
-    <h2 class="text-center titleSize">Hello, {{name}}!</h2>
-  </div>
-
-  <div class="text-center titleSize">➕<a href="/profile/createBlog" class="text-center titleSize">createNewBlog( )</a>
-  </div>
-  </br>
-
-  
-       <div class="row d-flex justify-content-center" style="background-color: black;">
-      <div class="d-flex flex-column mb-3">
-        <div class="mb-1">
-        <h1>myBlogPosts:</h1>
-        </div>
-        {{#each blogs as |blog|}}
-        <div class="row d-flex m-1" style="background-color: black;">
-          <div class="d-flex justify-content-between">
-            <h1><a href="/blogs/{{blog.id}}">📖 {{blog.title}}</a></h1>
-            <div class="d-flex flex-row align-items-center">
-              <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-md btn-info me-md-2">updateBlog( )</a>
-                <button class="btn btn-md btn-danger blog-list" data-id="{{blog.id}}">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/each}}
+      <div class="text-center">
+        <h2 class="text-center titleSize">Hello, {{name}}!</h2>
       </div>
-    
-    </div>
-  </div>
 
-{{! --Show User's comments on User's profile --}}
-<div style="background-color: black;">
-  <div>
-    {{#if comments.length}}
-    <div class="row d-flex justify-content-center">
-      <div class="d-flex flex-column mb-3 w-50">
-        <h3>myComments:</h3>
+      <div class="text-center titleSize">➕<a href="/profile/createBlog" class="text-center titleSize">createNewBlog(
+          )</a>
+      </div>
+      </br>
 
-        {{#each comments as |comment|}}
-        <div class="row d-flex border mb-3 p-1">
-          <div class="d-flex justify-content-between">
-            <div class="container">
-              <h4 class="fs-6">💭 {{comment.body}}</h4>
-            </div>
-            <div class="">
-              <div class="d-flex flex-row align-items-center">
-                <div class="update-comment d-grid gap-2 d-md-flex justify-content-md-end">
-                  <a href="/comments/{{comment.id}}/updateComment" class="btn btn-sm btn-info me-md-2">Edit Comment</a>
-                  <button class="btn btn-sm btn-danger comment-list" data-id="{{comment.id}}">Delete</button>
+
+      <div class="row d-flex justify-content-center" style="background-color: black;">
+        <div class="d-flex flex-column mb-3">
+          <div class="mb-1">
+            <h1>myBlogPosts:</h1>
+
+            {{#unless blogs.length}}
+            <div class="row d-flex justify-content-center">
+              <div class="d-flex flex-column mb-3">
+                <h2>...noneAtTheMoment</h2>
+                {{/unless}}
+
+              </div>
+              {{#each blogs as |blog|}}
+              <div class="row d-flex m-1" style="background-color: black;">
+                <div class="d-flex justify-content-between">
+                  <h1><a href="/blogs/{{blog.id}}">📖 {{blog.title}}</a></h1>
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-md btn-info me-md-2">updateBlog( )</a>
+                      <button class="btn btn-md btn-danger blog-list" data-id="{{blog.id}}">Delete</button>
+                    </div>
+                  </div>
                 </div>
               </div>
+              {{/each}}
             </div>
+
           </div>
         </div>
-        {{/each}}
-      </div>
-      {{/if}}
-    </div>
 
+        {{! --Show User's comments on User's profile --}}
+        <div style="background-color: black;">
+          <div>
+            {{#unless comments.length}}
+            <div class="row d-flex justify-content-center">
+              <div class="d-flex flex-column mb-3">
+                <h1>myComments:</h1>
+                <h2>...noneAtTheMoment</h2>
+              </div>
+            </div>
+            {{/unless}}
+
+            {{#if comments.length}}
+            <div class="row d-flex justify-content-center">
+              <div class="d-flex flex-column mb-3">
+                <h1>myComments:</h1>
+
+                {{#each comments as |comment|}}
+                <div class="row d-flex m-1">
+                  <div class="d-flex justify-content-between">
+                    <div class="container">
+                      <p class="h3">"{{comment.body}}"</p>
+                    </div>
+                    <div class="">
+                      <div class="d-flex flex-row align-items-center">
+                        <div class="update-comment d-grid gap-2 d-md-flex justify-content-md-end">
+                          <a href="/comments/{{comment.id}}/updateComment" class="btn btn-md btn-info me-md-2">updateComment()</a>
+                          <button class="btn btn-md btn-danger comment-list" data-id="{{comment.id}}">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{/each}}
+              </div>
+              {{/if}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-</div>
