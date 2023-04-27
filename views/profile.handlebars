@@ -1,6 +1,7 @@
 {{!-- Display for profile once signed in --}}
 
-
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-9 mx-auto">
 <div style="background-color: black;">
 
   <div class="text-center">
@@ -13,16 +14,18 @@
 
   
        <div class="row d-flex justify-content-center" style="background-color: black;">
-      <div class="d-flex flex-column mb-3 w-50">
-        <h2>myBlogPosts:</h2>
+      <div class="d-flex flex-column mb-3">
+        <div class="mb-1">
+        <h1>myBlogPosts:</h1>
+        </div>
         {{#each blogs as |blog|}}
-        <div class="row d-flex" style="background-color: black;">
+        <div class="row d-flex m-1" style="background-color: black;">
           <div class="d-flex justify-content-between">
-            <h4><a href="/blogs/{{blog.id}}">📖 {{blog.title}}</a></h4>
+            <h1><a href="/blogs/{{blog.id}}">📖 {{blog.title}}</a></h1>
             <div class="d-flex flex-row align-items-center">
               <div class="update-post d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-sm btn-info me-md-2">Update</a>
-                <button class="btn btn-sm btn-danger blog-list" data-id="{{blog.id}}">Delete</button>
+                <a href="/blogs/{{blog.id}}/updateBlog" class="btn btn-md btn-info me-md-2">updateBlog( )</a>
+                <button class="btn btn-md btn-danger blog-list" data-id="{{blog.id}}">Delete</button>
               </div>
             </div>
           </div>
@@ -63,5 +66,7 @@
     </div>
 
   </div>
+</div>
+</div>
 </div>
 </div>

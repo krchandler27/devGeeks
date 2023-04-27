@@ -1,30 +1,29 @@
 {{!-- For for updating existing Post --}}
-<div class="row">
-  <div class="col-sm-12 col-md-12 col-lg-9 mx-auto">
-    <h3 class="text-center titleSize">editYourBlogPost:</h3>
 
-<div class="px-5 pt-3">
-    <form class="form pb-5 px-5" id="update-blog-outline">
+<div class="col-sm-12 col-md-12 col-lg-6 mx-auto">
+  <h3 class="text-center titleSize">updateBlog( )</h3>
 
-      <input type="hidden" id="blog-id" data-id="{{blog.id}}" value="{{blog.id}}"/>
+  <div class="mt-4">
+    <form class="form-control" id="update-blog-outline">
 
-      <div class="form-group">
-        <label for="blog-title" style="font-weight: bold;">blogTitle:</label>
-        <input class="form-input" type="text" id="blog-title" name="blog-title" value="{{blog.title}}"/>
+      <input type="hidden" id="blog-id" data-id="{{blog.id}}" value="{{blog.id}}" />
+
+      <div class="d-flex justify-content-center align-items-center">
+        <input class="form-input" type="text" class="h1 p-1 m-2" id="blog-title" name="blog-title"
+          value="{{blog.title}}" />
       </div>
 
-      <div class="form-group">
-        <label for="blog-body" style="font-weight: bold;">blogBody:</label>
-        <textarea class="form-input" rows="20" cols="100" type="text" id="blog-body" name="blog-body" value="{{blog.body}}"/></textarea>
+      <div class="d-flex justify-content-center align-items-center">
+        <textarea class="m-3 p-3 h4" rows="20" cols="100" type="text" id="blog-body" name="blog-body"
+          value="{{blog.body}}" /></textarea>
       </div>
 
       <div class="form-group d-flex justify-content-center">
         <p>
-        <button type="submit" class="btn btn-info">updateBlog</button>
-        <a href="/profile" type="button" id="" class="btn btn-danger">Cancel</a>
+          <button type="submit" class="btn btn-md btn-info">updateBlog( )</button>
+          <a href="/profile" type="button" id="" class="btn btn-danger btn-md">Ctrl + C</a>
         </p>
       </div>
     </form>
-    </div>
   </div>
 </div>
