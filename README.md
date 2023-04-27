@@ -23,7 +23,7 @@ DevGeeks uses handlebars, node, is pre-seeded with usernames and blog-data, has 
  Deployed Heroku Link:  https://dev-geeks.herokuapp.com/
 
 ## Usage Information
-DevGeeks is a blog-space for tech geeks where users can post, update, and delete their own blogs and comments. The user will need to create their own .env file.
+DevGeeks is a blog-space where tech-geeks can post, update, and delete their own blogs and comments. Users will need to create their own .env file.
 
  
 ## Installation Instructions
