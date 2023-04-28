@@ -3,7 +3,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // Define Comment model by extending Model class
-class Comment extends Model {}
+class Comment extends Model { }
 
 // Initialize Comment model, specifying the attributes and their data types
 Comment.init(
@@ -17,6 +17,11 @@ Comment.init(
     body: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     blog_id: {
       type: DataTypes.INTEGER,

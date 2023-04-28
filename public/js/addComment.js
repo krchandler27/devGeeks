@@ -5,9 +5,6 @@ const commentFormHandler = async function (event) {
   const blog_id = document.querySelector('input[name="blog_id"]').value;
   const body = document.getElementById("comment-body").value.trim();
 
-  console.log(blog_id);
-  console.log(body);
-
   if (body && blog_id) {
     const response = await fetch("/api/comments", {
       method: "POST",
