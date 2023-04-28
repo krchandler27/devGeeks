@@ -57,8 +57,8 @@ a.no-style {
   background-color: rgb(29, 203, 29);
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: -500px;
-  margin-right: -500px;
+  /* margin-left: -500px;
+  margin-right: -500px; */
 }
 
 hr {

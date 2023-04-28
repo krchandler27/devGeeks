@@ -1,20 +1,26 @@
-<h1 class="title mt-3 mb-3">const = hotBlogsForDevs => {</h1>
+
 <!-- Loop over each blog in the blogs array and display each blog -->
-<div class="row">
   <div class="col-sm-12 col-md-12 col-lg-9 mx-auto">
+    <div class="p-3">
+    <div class="row d-flex justify-content-center page blog-tile" style="background-color: rgb(29, 203, 29)">
+    <h1 class="title mt-3">const = hotBlogsForDevs => {</h1>
+    </div>
+    </div>
 {{#each blogs as |blog|}}
+
 <a href="/blogs/{{blog.id}}" class="no-style">
-  <div class="row d-flex justify-content-center page blog-tile" style=style="background-color: black">
+<div class="p-3">
+  <div class="row d-flex justify-content-center page blog-tile mt-n5">
     <h2>{{blog.title}}</h2>
       <br />
     <p class="text-justify">
       {{blog.body}}
     </p>
   </div>
+  </div>
 </a>
 <br>
 {{/each}}
 <h1 class="title">};</h1>
 <br />
-</div>
 </div>
